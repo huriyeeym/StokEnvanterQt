@@ -1,0 +1,777 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ui version="4.0">
+ <class>DepotPage</class>
+ <widget class="QWidget" name="DepotPage">
+  <property name="geometry">
+   <rect>
+    <x>0</x>
+    <y>0</y>
+    <width>703</width>
+    <height>1027</height>
+   </rect>
+  </property>
+  <property name="windowTitle">
+   <string>Form</string>
+  </property>
+  <widget class="QWidget" name="verticalLayoutWidget">
+   <property name="geometry">
+    <rect>
+     <x>20</x>
+     <y>10</y>
+     <width>661</width>
+     <height>321</height>
+    </rect>
+   </property>
+   <layout class="QVBoxLayout" name="verticalLayout">
+    <item>
+     <widget class="QTableView" name="depotTableView">
+      <property name="styleSheet">
+       <string notr="true">QTableView {
+    background-color: rgb(20, 24, 36);
+    border: 1px solid rgba(41, 128, 185, 0.1);
+    border-radius: 12px;
+    padding: 2px;
+}
+
+/* Soldaki sayıları ve header'ı tamamen kaldır */
+QHeaderView::section:vertical,
+QTableView::verticalHeader {
+    width: 0;
+    border: none;
+    background: transparent;
+    padding: 0;
+    margin: 0;
+}
+
+/* Header stilleri */
+QHeaderView::section {
+    background-color: rgb(16, 19, 29);
+    color: #3498db;
+    padding: 15px 37px;
+    border: none;
+    font-weight: bold;
+    font-size: 13px;
+}
+
+/* Hücre stilleri */
+QTableView::item {
+    padding: 12px 22px;
+    color: #ecf0f1;
+    border: none;
+}
+
+/* Alternatif satır rengi */
+QTableView::item:alternate {
+    background-color: rgba(30, 35, 52, 0.5);
+}
+
+/* Seçili satır */
+QTableView::item:selected {
+    background-color: rgba(41, 128, 185, 0.15);
+    color: #ecf0f1;
+}
+
+/* Hover efekti */
+QTableView::item:hover {
+    background-color: rgba(41, 128, 185, 0.1);
+}
+
+/* Durum sütunu */
+QTableView::item[text=&quot;Aktif&quot;] {
+    color: #2ecc71;
+}
+
+QTableView::item[text=&quot;Pasif&quot;] {
+    color: #e74c3c;
+}
+
+/* Scrollbar */
+QScrollBar:vertical {
+    border: none;
+    background-color: transparent;
+    width: 8px;
+    margin: 0;
+}
+
+QScrollBar::handle:vertical {
+    background-color: rgba(41, 128, 185, 0.3);
+    min-height: 30px;
+    border-radius: 4px;
+}
+
+QScrollBar::handle:vertical:hover {
+    background-color: rgba(41, 128, 185, 0.5);
+}
+
+QScrollBar::sub-line:vertical,
+QScrollBar::add-line:vertical {
+    border: none;
+    background: none;
+    height: 0;
+}
+
+QScrollBar::add-page:vertical,
+QScrollBar::sub-page:vertical {
+    background: none;
+}
+/* Yatay scrollbar */
+QScrollBar:horizontal {
+    border: none;
+    background-color: transparent;
+    height: 8px;
+    margin: 0;
+}
+
+QScrollBar::handle:horizontal {
+    background-color: rgba(41, 128, 185, 0.3);
+    min-width: 30px;
+    border-radius: 4px;
+}
+
+QScrollBar::handle:horizontal:hover {
+    background-color: rgba(41, 128, 185, 0.5);
+}
+
+QScrollBar::sub-line:horizontal,
+QScrollBar::add-line:horizontal {
+    border: none;
+    background: none;
+    width: 0;
+}
+
+QScrollBar::add-page:horizontal,
+QScrollBar::sub-page:horizontal {
+    background: none;
+}
+
+/* Corner widget'ı gizle */
+QScrollBar::corner {
+    background: transparent;
+    border: none;
+}
+/* Grid çizgileri */
+QTableView {
+    gridline-color: rgba(41, 128, 185, 0.1);
+}
+
+/* Focus outline'ı kaldır */
+QTableView:focus {
+    outline: none;
+}</string>
+      </property>
+     </widget>
+    </item>
+   </layout>
+  </widget>
+  <widget class="QWidget" name="horizontalLayoutWidget">
+   <property name="geometry">
+    <rect>
+     <x>90</x>
+     <y>340</y>
+     <width>521</width>
+     <height>41</height>
+    </rect>
+   </property>
+   <layout class="QHBoxLayout" name="horizontalLayout">
+    <item>
+     <widget class="QPushButton" name="addButton">
+      <property name="styleSheet">
+       <string notr="true">QPushButton#addButton {
+    background: qlineargradient(x1:0, y1:0, x2:1, y2:0,
+        stop:0 #4a90e2,
+        stop:1 #357abd);
+    color: white;
+    border: none;
+    padding: 10px 20px;
+    text-align: center;
+    border-radius: 6px;
+    font-weight: bold;
+    font-size: 14px;
+    min-width: 120px;
+    max-width: 200px;
+    box-shadow: 0px 4px 6px rgba(0, 0, 0, 0.2);
+}
+
+QPushButton#addButton:hover {
+    background: qlineargradient(x1:0, y1:0, x2:1, y2:0,
+        stop:0 #4CAF50,
+        stop:1 #388E3C);
+}
+
+QPushButton#addButton:pressed {
+    background: qlineargradient(x1:0, y1:0, x2:1, y2:0,
+        stop:0 #388E3C,
+        stop:1 #2E7D32);
+    box-shadow: 0px 2px 4px rgba(0, 0, 0, 0.1);
+}</string>
+      </property>
+      <property name="text">
+       <string>Depo Ekle</string>
+      </property>
+     </widget>
+    </item>
+    <item>
+     <widget class="QPushButton" name="deleteButton">
+      <property name="styleSheet">
+       <string notr="true">QPushButton#deleteButton {
+    background: qlineargradient(x1:0, y1:0, x2:1, y2:0,
+        stop:0 #4a90e2,
+        stop:1 #357abd);
+    color: white;
+    border: none;
+    padding: 10px 20px;
+    text-align: center;
+    border-radius: 6px;
+    font-weight: bold;
+    font-size: 14px;
+    min-width: 120px;
+    max-width: 200px;
+    box-shadow: 0px 4px 6px rgba(0, 0, 0, 0.2);
+}
+
+QPushButton#deleteButton:hover {
+    background: qlineargradient(x1:0, y1:0, x2:1, y2:0,
+        stop:0 #F44336,
+        stop:1 #D32F2F);
+}
+
+QPushButton#deleteButton:pressed {
+    background: qlineargradient(x1:0, y1:0, x2:1, y2:0,
+        stop:0 #D32F2F,
+        stop:1 #C62828);
+    box-shadow: 0px 2px 4px rgba(0, 0, 0, 0.1);
+}</string>
+      </property>
+      <property name="text">
+       <string>Depo Sil</string>
+      </property>
+     </widget>
+    </item>
+    <item>
+     <widget class="QPushButton" name="updateButton">
+      <property name="styleSheet">
+       <string notr="true">QPushButton#updateButton {
+    background: qlineargradient(x1:0, y1:0, x2:1, y2:0,
+        stop:0 #4a90e2,
+        stop:1 #357abd);
+    color: white;
+    border: none;
+    padding: 10px 20px;
+    text-align: center;
+    border-radius: 6px;
+    font-weight: bold;
+    font-size: 14px;
+    min-width: 120px;
+    max-width: 200px;
+    box-shadow: 0px 4px 6px rgba(0, 0, 0, 0.2);
+}
+
+QPushButton#updateButton:hover {
+    background: qlineargradient(x1:0, y1:0, x2:1, y2:0,
+        stop:0 #5aa0f2,
+        stop:1 #458acd);
+}
+
+QPushButton#updateButton:pressed {
+    background: qlineargradient(x1:0, y1:0, x2:1, y2:0,
+        stop:0 #3980d2,
+        stop:1 #256aad);
+    box-shadow: 0px 2px 4px rgba(0, 0, 0, 0.1);
+}</string>
+      </property>
+      <property name="text">
+       <string>Depo Güncelle</string>
+      </property>
+     </widget>
+    </item>
+   </layout>
+  </widget>
+  <widget class="QStackedWidget" name="stackedWidget">
+   <property name="geometry">
+    <rect>
+     <x>20</x>
+     <y>430</y>
+     <width>651</width>
+     <height>311</height>
+    </rect>
+   </property>
+   <property name="styleSheet">
+    <string notr="true">QPushButton#cancelButton {
+    background-color: #F44336;
+    border: none;
+    border-radius: 6px;
+    padding: 8px 16px;
+    padding-left: 30px;
+    color: white;
+    font-weight: bold;
+    font-size: 13px;
+    min-width: 120px;
+    box-shadow: 0px 4px 6px rgba(0, 0, 0, 0.2);
+}
+
+QPushButton#cancelButton:hover {
+    background-color: #E57373;
+}
+
+QPushButton#cancelButton:pressed {
+    background-color: #D32F2F;
+    box-shadow: 0px 2px 4px rgba(0, 0, 0, 0.1);
+}</string>
+   </property>
+   <widget class="QWidget" name="page">
+    <widget class="QLineEdit" name="depotNameEdit">
+     <property name="geometry">
+      <rect>
+       <x>190</x>
+       <y>20</y>
+       <width>381</width>
+       <height>51</height>
+      </rect>
+     </property>
+     <property name="styleSheet">
+      <string notr="true">QLineEdit {
+    background-color: rgba(255, 255, 255, 0.1);
+    border: none;
+    border-bottom: 2px solid #4a9fff;
+    color: white;
+    padding: 8px;
+    margin: 10px;
+    border-radius: 5px;
+}
+
+QLineEdit:focus {
+    border-bottom: 2px solid #2ecc71;
+}</string>
+     </property>
+    </widget>
+    <widget class="QComboBox" name="branchComboBox">
+     <property name="geometry">
+      <rect>
+       <x>200</x>
+       <y>80</y>
+       <width>361</width>
+       <height>31</height>
+      </rect>
+     </property>
+     <property name="styleSheet">
+      <string notr="true">QComboBox {
+    background-color: rgba(255, 255, 255, 0.01);
+    border: 2px solid rgba(74, 144, 226, 0.3);
+    border-radius: 5px;
+    padding: 5px;
+    padding-right: 25px;
+    color: white;
+    font-size: 14px;
+}
+
+QComboBox:hover {
+    background-color: rgba(255, 255, 255, 0.12);
+    border: 2px solid #4a90e2;
+}
+
+QComboBox:focus {
+    border: 2px solid #4a90e2;
+}
+
+QComboBox::drop-down {
+    border: none;
+    background-color: #000000;
+    width: 25px;
+    border-top-right-radius: 3px;
+    border-bottom-right-radius: 3px;
+}
+
+QComboBox::down-arrow {
+    background: none;
+    border-left: 5px solid none;
+    border-right: 5px solid none;
+    border-top: 5px solid #999;
+    width: 0px;
+    height: 0px;
+}
+
+QComboBox::item {
+    background-color: #1c1c1c;
+    color: white;
+    padding: 5px;
+}
+
+QComboBox::item:hover {
+    background-color: #4a90e2;
+}
+
+QComboBox::item:selected {
+    background-color: #2d5986;
+}</string>
+     </property>
+    </widget>
+    <widget class="QLineEdit" name="managerEdit">
+     <property name="geometry">
+      <rect>
+       <x>190</x>
+       <y>120</y>
+       <width>381</width>
+       <height>51</height>
+      </rect>
+     </property>
+     <property name="styleSheet">
+      <string notr="true">QLineEdit {
+    background-color: rgba(255, 255, 255, 0.1);
+    border: none;
+    border-bottom: 2px solid #4a9fff;
+    color: white;
+    padding: 8px;
+    margin: 10px;
+    border-radius: 5px;
+}
+
+QLineEdit:focus {
+    border-bottom: 2px solid #2ecc71;
+}</string>
+     </property>
+    </widget>
+    <widget class="QSpinBox" name="capacitySpinBox">
+     <property name="geometry">
+      <rect>
+       <x>200</x>
+       <y>180</y>
+       <width>361</width>
+       <height>29</height>
+      </rect>
+     </property>
+     <property name="styleSheet">
+      <string notr="true">QSpinBox, QDoubleSpinBox {
+    background-color: rgba(255, 255, 255, 0.01);
+    border: 2px solid rgba(74, 144, 226, 0.3);
+    border-radius: 5px;
+    padding: 5px;
+    padding-right: 25px;  /* Ok butonları için daha fazla boşluk */
+    color: white;
+    font-size: 14px;
+}
+
+QSpinBox:hover, QDoubleSpinBox:hover {
+    background-color: rgba(255, 255, 255, 0.12);
+    border: 2px solid #4a90e2;
+}
+
+QSpinBox:focus, QDoubleSpinBox:focus {
+    border: 2px solid #4a90e2;
+}
+
+QSpinBox::up-button, QDoubleSpinBox::up-button {
+    background-color: #000000;
+    border: none;
+    width: 25px;
+    border-top-right-radius: 3px;
+}
+
+QSpinBox::down-button, QDoubleSpinBox::down-button {
+    background-color: #000000;
+    border: none;
+    width: 25px;
+    border-bottom-right-radius: 3px;
+}
+
+QSpinBox::up-arrow, QDoubleSpinBox::up-arrow {
+    background: none;
+    border-left: 5px solid none;
+    border-right: 5px solid none;
+    border-bottom: 5px solid #999;
+    width: 0px;
+    height: 0px;
+}
+
+QSpinBox::down-arrow, QDoubleSpinBox::down-arrow {
+    background: none;
+    border-left: 5px solid none;
+    border-right: 5px solid none;
+    border-top: 5px solid #999;
+    width: 0px;
+    height: 0px;
+}</string>
+     </property>
+    </widget>
+    <widget class="QWidget" name="horizontalLayoutWidget_3">
+     <property name="geometry">
+      <rect>
+       <x>210</x>
+       <y>230</y>
+       <width>341</width>
+       <height>41</height>
+      </rect>
+     </property>
+     <layout class="QHBoxLayout" name="horizontalLayout_3">
+      <item>
+       <widget class="QPushButton" name="saveButton">
+        <property name="styleSheet">
+         <string notr="true">QPushButton#saveButton {
+    background-color: #4CAF50;
+    border: none;
+    border-radius: 6px;
+    padding: 8px 16px;
+    padding-left: 16px;  /* padding-left'i diğerleriyle aynı yaptım */
+    color: white;
+    font-weight: bold;
+    font-size: 13px;
+    min-width: 120px;
+    box-shadow: 0px 4px 6px rgba(0, 0, 0, 0.2);
+    text-align: center;  /* Yazıyı ortala */
+    qproperty-alignment: AlignCenter;  /* Qt özel property'si ile ortala */
+}
+
+QPushButton#saveButton:hover {
+    background-color: #66BB6A;
+}
+
+QPushButton#saveButton:pressed {
+    background-color: #388E3C;
+    box-shadow: 0px 2px 4px rgba(0, 0, 0, 0.1);
+}</string>
+        </property>
+        <property name="text">
+         <string>Kaydet</string>
+        </property>
+       </widget>
+      </item>
+      <item>
+       <widget class="QPushButton" name="cancelButton">
+        <property name="styleSheet">
+         <string notr="true">QPushButton#cancelButton {
+    background-color: #F44336;
+    border: none;
+    border-radius: 6px;
+    padding: 8px 16px;
+    padding-left: 16px;  /* padding-left'i diğerleriyle aynı yaptım */
+    color: white;
+    font-weight: bold;
+    font-size: 13px;
+    min-width: 120px;
+    box-shadow: 0px 4px 6px rgba(0, 0, 0, 0.2);
+    text-align: center;  /* Yazıyı ortala */
+    qproperty-alignment: AlignCenter;  /* Qt özel property'si ile ortala */
+}
+
+QPushButton#cancelButton:hover {
+    background-color: #E57373;
+}
+
+QPushButton#cancelButton:pressed {
+    background-color: #D32F2F;
+    box-shadow: 0px 2px 4px rgba(0, 0, 0, 0.1);
+}</string>
+        </property>
+        <property name="text">
+         <string>İptal</string>
+        </property>
+       </widget>
+      </item>
+     </layout>
+    </widget>
+    <widget class="QLabel" name="label_2">
+     <property name="geometry">
+      <rect>
+       <x>22</x>
+       <y>30</y>
+       <width>91</width>
+       <height>41</height>
+      </rect>
+     </property>
+     <property name="styleSheet">
+      <string notr="true">QLabel {
+    color: white;
+    font-size: 14px;
+    font-weight: 500;
+    padding: 5px;
+    margin-right: 10px;
+    margin-bottom: 5px;
+}
+
+/* Label'a özel hover efekti (isteğe bağlı) */
+QLabel:hover {
+    color: #4a90e2;
+}
+
+/* Label altına hafif bir çizgi ekleyelim (isteğe bağlı) */
+QLabel::after {
+    content: '';
+    display: block;
+    width: 0;
+    height: 2px;
+    background: #4a90e2;
+    transition: width .3s;
+}
+
+QLabel:hover::after {
+    width: 100%;
+}
+
+/* Alt kenar çizgili basit versiyon için: */
+/*
+QLabel {
+    border-bottom: 2px solid rgba(74, 144, 226, 0.3);
+    padding-bottom: 2px;
+}
+*/</string>
+     </property>
+     <property name="text">
+      <string>Depo Adı:</string>
+     </property>
+    </widget>
+    <widget class="QLabel" name="label_3">
+     <property name="geometry">
+      <rect>
+       <x>22</x>
+       <y>80</y>
+       <width>91</width>
+       <height>41</height>
+      </rect>
+     </property>
+     <property name="styleSheet">
+      <string notr="true">QLabel {
+    color: white;
+    font-size: 14px;
+    font-weight: 500;
+    padding: 5px;
+    margin-right: 10px;
+    margin-bottom: 5px;
+}
+
+/* Label'a özel hover efekti (isteğe bağlı) */
+QLabel:hover {
+    color: #4a90e2;
+}
+
+/* Label altına hafif bir çizgi ekleyelim (isteğe bağlı) */
+QLabel::after {
+    content: '';
+    display: block;
+    width: 0;
+    height: 2px;
+    background: #4a90e2;
+    transition: width .3s;
+}
+
+QLabel:hover::after {
+    width: 100%;
+}
+
+/* Alt kenar çizgili basit versiyon için: */
+/*
+QLabel {
+    border-bottom: 2px solid rgba(74, 144, 226, 0.3);
+    padding-bottom: 2px;
+}
+*/</string>
+     </property>
+     <property name="text">
+      <string>Şube:</string>
+     </property>
+    </widget>
+    <widget class="QLabel" name="label_4">
+     <property name="geometry">
+      <rect>
+       <x>22</x>
+       <y>130</y>
+       <width>91</width>
+       <height>41</height>
+      </rect>
+     </property>
+     <property name="styleSheet">
+      <string notr="true">QLabel {
+    color: white;
+    font-size: 14px;
+    font-weight: 500;
+    padding: 5px;
+    margin-right: 10px;
+    margin-bottom: 5px;
+}
+
+/* Label'a özel hover efekti (isteğe bağlı) */
+QLabel:hover {
+    color: #4a90e2;
+}
+
+/* Label altına hafif bir çizgi ekleyelim (isteğe bağlı) */
+QLabel::after {
+    content: '';
+    display: block;
+    width: 0;
+    height: 2px;
+    background: #4a90e2;
+    transition: width .3s;
+}
+
+QLabel:hover::after {
+    width: 100%;
+}
+
+/* Alt kenar çizgili basit versiyon için: */
+/*
+QLabel {
+    border-bottom: 2px solid rgba(74, 144, 226, 0.3);
+    padding-bottom: 2px;
+}
+*/</string>
+     </property>
+     <property name="text">
+      <string>Yönetici :</string>
+     </property>
+    </widget>
+    <widget class="QLabel" name="label_5">
+     <property name="geometry">
+      <rect>
+       <x>22</x>
+       <y>180</y>
+       <width>91</width>
+       <height>41</height>
+      </rect>
+     </property>
+     <property name="styleSheet">
+      <string notr="true">QLabel {
+    color: white;
+    font-size: 14px;
+    font-weight: 500;
+    padding: 5px;
+    margin-right: 10px;
+    margin-bottom: 5px;
+}
+
+/* Label'a özel hover efekti (isteğe bağlı) */
+QLabel:hover {
+    color: #4a90e2;
+}
+
+/* Label altına hafif bir çizgi ekleyelim (isteğe bağlı) */
+QLabel::after {
+    content: '';
+    display: block;
+    width: 0;
+    height: 2px;
+    background: #4a90e2;
+    transition: width .3s;
+}
+
+QLabel:hover::after {
+    width: 100%;
+}
+
+/* Alt kenar çizgili basit versiyon için: */
+/*
+QLabel {
+    border-bottom: 2px solid rgba(74, 144, 226, 0.3);
+    padding-bottom: 2px;
+}
+*/</string>
+     </property>
+     <property name="text">
+      <string>Kapasite:</string>
+     </property>
+    </widget>
+   </widget>
+   <widget class="QWidget" name="page_2"/>
+  </widget>
+ </widget>
+ <resources/>
+ <connections/>
+</ui>

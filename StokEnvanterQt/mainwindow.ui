@@ -1,0 +1,505 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ui version="4.0">
+ <class>MainWindow</class>
+ <widget class="QMainWindow" name="MainWindow">
+  <property name="geometry">
+   <rect>
+    <x>0</x>
+    <y>0</y>
+    <width>738</width>
+    <height>1029</height>
+   </rect>
+  </property>
+  <property name="windowTitle">
+   <string>MainWindow</string>
+  </property>
+  <property name="styleSheet">
+   <string notr="true">QMainWindow {
+    background-color: #1a1a2e;
+}
+
+QWidget {
+    background-color: #1a1a2e;
+}
+
+/* Central Widget stili */
+QWidget#centralwidget {
+    background-color: #1a1a2e;
+}
+
+/* Stack Widget stili */
+QStackedWidget {
+    background-color: #1a1a2e;
+}</string>
+  </property>
+  <widget class="QWidget" name="centralwidget">
+   <property name="layoutDirection">
+    <enum>Qt::LayoutDirection::LeftToRight</enum>
+   </property>
+   <property name="autoFillBackground">
+    <bool>false</bool>
+   </property>
+   <widget class="QStackedWidget" name="stackedWidget">
+    <property name="geometry">
+     <rect>
+      <x>0</x>
+      <y>80</y>
+      <width>711</width>
+      <height>891</height>
+     </rect>
+    </property>
+    <property name="sizePolicy">
+     <sizepolicy hsizetype="Expanding" vsizetype="Expanding">
+      <horstretch>0</horstretch>
+      <verstretch>0</verstretch>
+     </sizepolicy>
+    </property>
+    <property name="styleSheet">
+     <string notr="true">QFrame#headerFrame {
+    background-color: #252538;
+    min-height: 70px;
+    max-height: 70px;
+    border-bottom: 2px solid #3B3B5A;
+    padding: 0px 10px;
+}
+
+QPushButton {
+    background-color: transparent;
+    color: #A0A0C0;
+    border: none;
+    padding: 8px 16px;
+    font-size: 13px;
+    font-weight: bold;
+    font-family: 'Segoe UI', Arial;
+    min-width: 120px;
+    text-align: center;
+    margin: 0px 5px;
+}
+
+QPushButton:hover {
+    color: white;
+    background-color: rgba(74, 144, 226, 0.1);
+    border-bottom: 3px solid #4A90E2;
+}
+
+QPushButton:pressed {
+    background-color: rgba(74, 144, 226, 0.2);
+    border-bottom: 3px solid #357ABD;
+}
+
+QPushButton:checked {
+    color: white;
+    border-bottom: 3px solid #4A90E2;
+    background-color: rgba(74, 144, 226, 0.15);
+}</string>
+    </property>
+    <property name="currentIndex">
+     <number>3</number>
+    </property>
+    <widget class="QWidget" name="stackedWidgetPage1"/>
+    <widget class="QWidget" name="stackedWidgetPage3"/>
+    <widget class="QWidget" name="stackedWidgetPage"/>
+    <widget class="QWidget" name="stackedWidgetPage4"/>
+    <widget class="QWidget" name="stackedWidgetPage2"/>
+   </widget>
+   <widget class="QWidget" name="horizontalLayoutWidget">
+    <property name="geometry">
+     <rect>
+      <x>0</x>
+      <y>-20</y>
+      <width>741</width>
+      <height>98</height>
+     </rect>
+    </property>
+    <layout class="QHBoxLayout" name="horizontalLayout_2">
+     <property name="spacing">
+      <number>0</number>
+     </property>
+     <item>
+      <widget class="QFrame" name="headerFrame">
+       <property name="sizePolicy">
+        <sizepolicy hsizetype="Expanding" vsizetype="Fixed">
+         <horstretch>0</horstretch>
+         <verstretch>0</verstretch>
+        </sizepolicy>
+       </property>
+       <property name="minimumSize">
+        <size>
+         <width>0</width>
+         <height>64</height>
+        </size>
+       </property>
+       <property name="maximumSize">
+        <size>
+         <width>16777215</width>
+         <height>16777215</height>
+        </size>
+       </property>
+       <property name="styleSheet">
+        <string notr="true">/* Modern, animasyonlu header stil */
+QFrame#headerFrame {
+    background-color: #f8fafc;
+    min-height: 64px;
+    border: none;
+    box-shadow: 0 2px 10px rgba(0, 0, 0, 0.05);
+    padding: 0 16px;
+}</string>
+       </property>
+       <property name="frameShape">
+        <enum>QFrame::Shape::NoFrame</enum>
+       </property>
+       <property name="frameShadow">
+        <enum>QFrame::Shadow::Plain</enum>
+       </property>
+       <widget class="QPushButton" name="productButton">
+        <property name="geometry">
+         <rect>
+          <x>40</x>
+          <y>10</y>
+          <width>151</width>
+          <height>71</height>
+         </rect>
+        </property>
+        <property name="cursor">
+         <cursorShape>PointingHandCursor</cursorShape>
+        </property>
+        <property name="styleSheet">
+         <string notr="true">QPushButton#depotButton, QPushButton#productButton, QPushButton#stockButton, QPushButton#reportButton  {
+    background-color: transparent;
+    border: 2px solid transparent;
+    color: #64748b;
+    font-size: 13px;
+    font-weight: 800;  /* 600'den 800'e çıkardım */
+    padding: 8px 15px;
+    margin: 0 6px;
+    border-radius: 12px;
+    min-height: 42px;
+    qproperty-iconSize: 20px 20px;
+    text-align: center;
+    qproperty-minimumContentsLength: 100;
+}
+
+/* Hover efekti - yumuşak geçiş */
+QPushButton#depotButton:hover, QPushButton#productButton:hover, QPushButton#stockButton:hover, QPushButton#reportButton:hover {
+    background-color: rgba(59, 130, 246, 0.08);
+    color: #3b82f6;
+    border: 2px solid transparent;
+}
+QPushButton#depotButton:checked, QPushButton#productButton:checked, QPushButton#stockButton:checked, QPushButton#reportButton:checked {
+    background: #1a1a2e;  /* Tek renk gradient yerine */
+    color: white;
+    border: 2px solid transparent;
+}
+
+/* Hover + Checked kombinasyonu için özel efekt */
+QPushButton#depotButton:checked:hover, QPushButton#productButton:checked:hover, QPushButton#stockButton:checked:hover, QPushButton#reportButton:checked:hover {
+    background: #1a1a2e;  /* Aynı renk */
+    box-shadow: 0 4px 12px rgba(26, 26, 46, 0.3);  /* Gölge rengini de uyumlu yaptım */
+}
+</string>
+        </property>
+        <property name="text">
+         <string>ÜRÜN YÖNETİMİ</string>
+        </property>
+        <property name="checkable">
+         <bool>true</bool>
+        </property>
+        <property name="flat">
+         <bool>true</bool>
+        </property>
+       </widget>
+       <widget class="QPushButton" name="depotButton">
+        <property name="geometry">
+         <rect>
+          <x>210</x>
+          <y>11</y>
+          <width>171</width>
+          <height>71</height>
+         </rect>
+        </property>
+        <property name="cursor">
+         <cursorShape>PointingHandCursor</cursorShape>
+        </property>
+        <property name="styleSheet">
+         <string notr="true">QPushButton#depotButton, QPushButton#productButton, QPushButton#stockButton {
+    background-color: transparent;
+    border: 2px solid transparent;
+    color: #64748b;
+    font-size: 13px;
+    font-weight: 800;  /* 600'den 800'e çıkardım */
+    padding: 8px 15px;
+    margin: 0 6px;
+    border-radius: 12px;
+    min-height: 42px;
+    qproperty-iconSize: 20px 20px;
+    text-align: center;
+    qproperty-minimumContentsLength: 100;
+}
+
+/* Hover efekti - yumuşak geçiş */
+QPushButton#depotButton:hover, QPushButton#productButton:hover, QPushButton#stockButton:hover {
+    background-color: rgba(59, 130, 246, 0.08);
+    color: #3b82f6;
+    border: 2px solid transparent;
+}
+QPushButton#depotButton:checked, QPushButton#productButton:checked, QPushButton#stockButton:checked {
+    background: #1a1a2e;  /* Tek renk gradient yerine */
+    color: white;
+    border: 2px solid transparent;
+}
+
+/* Hover + Checked kombinasyonu için özel efekt */
+QPushButton#depotButton:checked:hover, QPushButton#productButton:checked:hover, QPushButton#stockButton:checked:hover {
+    background: #1a1a2e;  /* Aynı renk */
+    box-shadow: 0 4px 12px rgba(26, 26, 46, 0.3);  /* Gölge rengini de uyumlu yaptım */
+}
+/* Sağdaki butonlar için özel tasarım */
+QPushButton#reportButton, QPushButton#settingsButton {
+    background: transparent;
+    border: 2px solid #e2e8f0;
+    border-radius: 10px;
+    color: #475569;
+    padding: 8px 20px;
+    min-height: 38px;
+    font-weight: 600;
+    font-size: 13px;
+    margin: 12px 4px;
+}
+
+/* Sağdaki butonlar hover animasyonu */
+QPushButton#reportButton:hover, QPushButton#settingsButton:hover {
+    background-color: #1e293b;
+    color: white;
+    border-color: #1e293b;
+}
+
+/* Sağdaki butonlar tıklama efekti */
+QPushButton#reportButton:pressed, QPushButton#settingsButton:pressed {
+    background-color: #0f172a;
+    border-color: #0f172a;
+    transform: translateY(1px);
+}</string>
+        </property>
+        <property name="text">
+         <string>DEPO YÖNETİMİ </string>
+        </property>
+        <property name="checkable">
+         <bool>true</bool>
+        </property>
+        <property name="flat">
+         <bool>true</bool>
+        </property>
+       </widget>
+       <widget class="QPushButton" name="stockButton">
+        <property name="geometry">
+         <rect>
+          <x>370</x>
+          <y>10</y>
+          <width>181</width>
+          <height>71</height>
+         </rect>
+        </property>
+        <property name="cursor">
+         <cursorShape>PointingHandCursor</cursorShape>
+        </property>
+        <property name="styleSheet">
+         <string notr="true">QPushButton#depotButton, QPushButton#productButton, QPushButton#stockButton {
+    background-color: transparent;
+    border: 2px solid transparent;
+    color: #64748b;
+    font-size: 13px;
+    font-weight: 800;  /* 600'den 800'e çıkardım */
+    padding: 8px 17px;
+    margin: 0 6px;
+    border-radius: 12px;
+    min-height: 42px;
+    qproperty-iconSize: 20px 20px;
+    text-align: center;
+    qproperty-minimumContentsLength: 100;
+}
+
+/* Hover efekti - yumuşak geçiş */
+QPushButton#depotButton:hover, QPushButton#productButton:hover, QPushButton#stockButton:hover {
+    background-color: rgba(59, 130, 246, 0.08);
+    color: #3b82f6;
+    border: 2px solid transparent;
+}
+QPushButton#depotButton:checked, QPushButton#productButton:checked, QPushButton#stockButton:checked {
+    background: #1a1a2e;  /* Tek renk gradient yerine */
+    color: white;
+    border: 2px solid transparent;
+}
+
+/* Hover + Checked kombinasyonu için özel efekt */
+QPushButton#depotButton:checked:hover, QPushButton#productButton:checked:hover, QPushButton#stockButton:checked:hover {
+    background: #1a1a2e;  /* Aynı renk */
+    box-shadow: 0 4px 12px rgba(26, 26, 46, 0.3);  /* Gölge rengini de uyumlu yaptım */
+}
+/* Sağdaki butonlar için özel tasarım */
+QPushButton#reportButton, QPushButton#settingsButton {
+    background: transparent;
+    border: 2px solid #e2e8f0;
+    border-radius: 10px;
+    color: #475569;
+    padding: 8px 20px;
+    min-height: 38px;
+    font-weight: 600;
+    font-size: 13px;
+    margin: 12px 4px;
+}
+
+/* Sağdaki butonlar hover animasyonu */
+QPushButton#reportButton:hover, QPushButton#settingsButton:hover {
+    background-color: #1e293b;
+    color: white;
+    border-color: #1e293b;
+}
+
+/* Sağdaki butonlar tıklama efekti */
+QPushButton#reportButton:pressed, QPushButton#settingsButton:pressed {
+    background-color: #0f172a;
+    border-color: #0f172a;
+    transform: translateY(1px);
+}</string>
+        </property>
+        <property name="text">
+         <string>STOK YÖNETİMİ</string>
+        </property>
+        <property name="checkable">
+         <bool>true</bool>
+        </property>
+        <property name="flat">
+         <bool>true</bool>
+        </property>
+       </widget>
+       <widget class="QPushButton" name="reportButton">
+        <property name="geometry">
+         <rect>
+          <x>560</x>
+          <y>10</y>
+          <width>161</width>
+          <height>71</height>
+         </rect>
+        </property>
+        <property name="cursor">
+         <cursorShape>PointingHandCursor</cursorShape>
+        </property>
+        <property name="styleSheet">
+         <string notr="true">QPushButton#depotButton, QPushButton#productButton, QPushButton#stockButton, QPushButton#reportButton  {
+    background-color: transparent;
+    border: 2px solid transparent;
+    color: #64748b;
+    font-size: 13px;
+    font-weight: 800;  /* 600'den 800'e çıkardım */
+    padding: 8px 15px;
+    margin: 0 6px;
+    border-radius: 12px;
+    min-height: 42px;
+    qproperty-iconSize: 20px 20px;
+    text-align: center;
+    qproperty-minimumContentsLength: 100;
+}
+
+/* Hover efekti - yumuşak geçiş */
+QPushButton#depotButton:hover, QPushButton#productButton:hover, QPushButton#stockButton:hover, QPushButton#reportButton:hover {
+    background-color: rgba(59, 130, 246, 0.08);
+    color: #3b82f6;
+    border: 2px solid transparent;
+}
+QPushButton#depotButton:checked, QPushButton#productButton:checked, QPushButton#stockButton:checked, QPushButton#reportButton:checked {
+    background: #1a1a2e;  /* Tek renk gradient yerine */
+    color: white;
+    border: 2px solid transparent;
+}
+
+/* Hover + Checked kombinasyonu için özel efekt */
+QPushButton#depotButton:checked:hover, QPushButton#productButton:checked:hover, QPushButton#stockButton:checked:hover, QPushButton#reportButton:checked:hover {
+    background: #1a1a2e;  /* Aynı renk */
+    box-shadow: 0 4px 12px rgba(26, 26, 46, 0.3);  /* Gölge rengini de uyumlu yaptım */
+}
+</string>
+        </property>
+        <property name="text">
+         <string>RAPORLAR</string>
+        </property>
+        <property name="checkable">
+         <bool>true</bool>
+        </property>
+        <property name="flat">
+         <bool>true</bool>
+        </property>
+       </widget>
+       <widget class="QPushButton" name="settingsButton">
+        <property name="geometry">
+         <rect>
+          <x>740</x>
+          <y>10</y>
+          <width>101</width>
+          <height>82</height>
+         </rect>
+        </property>
+        <property name="cursor">
+         <cursorShape>WaitCursor</cursorShape>
+        </property>
+        <property name="styleSheet">
+         <string notr="true">/* Raporlar ve Ayarlar butonları - Genel Stil */
+QPushButton#settingsButton {
+    background: transparent;
+    border: 2px solid #ffffff;
+    border-radius: 10px;
+    color: #ffffff;
+    padding: 8px 20px;
+    min-height: 38px;
+    font-weight: 600;
+    font-size: 13px;
+    margin: 12px 4px;
+}
+
+/* Hover efekti */
+QPushButton#settingsButton:hover {
+    background-color: #ffffff;
+    color: white;
+    border-color: #1e293b;
+}
+
+/* Checked durumu - Aktif buton */
+QPushButton#settingsButton:checked {
+    background-color: #ffffff;
+    color: white;
+    border-color: transparent;
+}
+
+/* Hover + Checked kombinasyonu */
+QPushButton#settingsButton:checked:hover {
+    background-color: #ffffff;
+    box-shadow: 0 4px 12px rgba(26, 26, 46, 0.3);
+}
+</string>
+        </property>
+        <property name="text">
+         <string>Ayarlar</string>
+        </property>
+        <property name="checkable">
+         <bool>true</bool>
+        </property>
+       </widget>
+      </widget>
+     </item>
+    </layout>
+   </widget>
+  </widget>
+  <widget class="QMenuBar" name="menubar">
+   <property name="geometry">
+    <rect>
+     <x>0</x>
+     <y>0</y>
+     <width>738</width>
+     <height>25</height>
+    </rect>
+   </property>
+  </widget>
+  <widget class="QStatusBar" name="statusbar"/>
+ </widget>
+ <resources/>
+ <connections/>
+</ui>
